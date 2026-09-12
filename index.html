@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>liqID | Rapid Liquid Analysis</title>
 
   <style>
@@ -12,18 +14,24 @@
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: Arial, Helvetica, sans-serif;
-      background: #f7f7f5;
-      color: #111;
+      background: #f8f9fa;
+      color: #111820;
       line-height: 1.6;
     }
 
     .container {
       width: 90%;
-      max-width: 1100px;
+      max-width: 1150px;
       margin: auto;
     }
+
+    /* NAV */
 
     nav {
       display: flex;
@@ -33,121 +41,268 @@
     }
 
     .logo {
-      font-size: 32px;
-      font-weight: 700;
-      letter-spacing: -1px;
+      display: flex;
+      align-items: baseline;
+      line-height: 1;
+      font-weight: 800;
+      letter-spacing: -3px;
+    }
+
+    .logo-liq {
+      font-size: 48px;
+      color: #111820;
+    }
+
+    .logo-id {
+      font-size: 54px;
+      color: #6f87a3;
+      margin-left: 1px;
     }
 
     nav a {
-      color: #111;
+      color: #111820;
       text-decoration: none;
-      margin-left: 25px;
+      margin-left: 28px;
       font-size: 14px;
+      font-weight: 600;
     }
 
+    nav a:hover {
+      opacity: 0.6;
+    }
+
+    /* HERO */
+
     .hero {
-      min-height: 65vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      max-width: 800px;
+      min-height: 72vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 55px;
+      padding: 60px 0 80px;
     }
 
     .hero h1 {
-      font-size: clamp(48px, 8vw, 88px);
-      line-height: 1;
-      letter-spacing: -3px;
+      font-size: clamp(52px, 6vw, 82px);
+      line-height: 0.98;
+      letter-spacing: -4px;
       margin-bottom: 30px;
     }
 
     .hero p {
       font-size: 20px;
-      color: #555;
-      max-width: 650px;
-      margin-bottom: 35px;
+      color: #58616b;
+      max-width: 550px;
+      margin-bottom: 34px;
     }
 
     .button {
       display: inline-block;
-      background: #111;
+      background: #111820;
       color: white;
-      padding: 14px 22px;
+      padding: 15px 24px;
+      border-radius: 5px;
       text-decoration: none;
-      border-radius: 4px;
-      width: fit-content;
+      font-weight: 600;
     }
 
+    .button:hover {
+      opacity: 0.85;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* GENERAL SECTIONS */
+
     section {
-      padding: 90px 0;
-      border-top: 1px solid #ddd;
+      padding: 100px 0;
+      border-top: 1px solid #dfe3e6;
+    }
+
+    .section-label {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      font-weight: 700;
+      color: #64788b;
+      margin-bottom: 15px;
     }
 
     section h2 {
-      font-size: 36px;
-      margin-bottom: 20px;
-      letter-spacing: -1px;
+      font-size: clamp(38px, 5vw, 58px);
+      line-height: 1.05;
+      letter-spacing: -2px;
+      margin-bottom: 28px;
+      max-width: 800px;
     }
 
-    section p {
-      color: #555;
-      max-width: 700px;
-      font-size: 18px;
+    .section-intro {
+      color: #58616b;
+      max-width: 750px;
+      font-size: 19px;
     }
 
-    .applications {
+    /* ABOUT */
+
+    .about-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-      margin-top: 40px;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+      margin-top: 50px;
+    }
+
+    .about-point {
+      border-top: 2px solid #111820;
+      padding-top: 18px;
+    }
+
+    .about-point h3 {
+      font-size: 21px;
+      margin-bottom: 10px;
+    }
+
+    .about-point p {
+      color: #58616b;
+    }
+
+    /* APPLICATIONS */
+
+    .applications-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+      margin-top: 50px;
     }
 
     .application {
-      padding: 30px 20px;
-      border: 1px solid #ddd;
       background: white;
+      border: 1px solid #dfe3e6;
+      padding: 38px;
+      min-height: 210px;
+      transition: 0.2s ease;
+    }
+
+    .application:hover {
+      transform: translateY(-3px);
+      border-color: #9aa5af;
+    }
+
+    .application-number {
+      color: #70859a;
+      font-size: 13px;
+      font-weight: bold;
+      letter-spacing: 2px;
+      margin-bottom: 22px;
     }
 
     .application h3 {
+      font-size: 24px;
+      margin-bottom: 12px;
+    }
+
+    .application p {
+      color: #58616b;
+      font-size: 16px;
+    }
+
+    /* DEVELOPMENT */
+
+    .status {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      margin-top: 45px;
+      gap: 20px;
+    }
+
+    .status-card {
+      padding: 30px;
+      background: white;
+      border: 1px solid #dfe3e6;
+    }
+
+    .status-card h3 {
       font-size: 18px;
       margin-bottom: 8px;
     }
 
-    .status {
-      display: flex;
-      gap: 30px;
-      flex-wrap: wrap;
-      margin-top: 35px;
+    .status-card p {
+      color: #58616b;
+      font-size: 15px;
     }
 
-    .status div {
-      font-size: 15px;
+    /* CONTACT */
+
+    #contact {
+      background: #111820;
+      color: white;
+    }
+
+    #contact .section-label {
+      color: #9baebe;
+    }
+
+    #contact h2 {
+      color: white;
+    }
+
+    #contact p {
+      color: #c2c9cf;
+    }
+
+    #contact a {
+      color: white;
       font-weight: 600;
     }
 
-    footer {
-      padding: 50px 0;
-      border-top: 1px solid #ddd;
-      color: #666;
-      font-size: 14px;
+    .contact-details {
+      margin-top: 40px;
+      font-size: 17px;
     }
 
-    @media (max-width: 700px) {
-      .applications {
-        grid-template-columns: 1fr 1fr;
+    footer {
+      padding: 35px 0;
+      background: #111820;
+      border-top: 1px solid #303841;
+      color: #9ca6ad;
+      font-size: 13px;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 800px) {
+      .hero {
+        grid-template-columns: 1fr;
+        padding-top: 40px;
+      }
+
+      .hero-image {
+        order: -1;
+      }
+
+      .hero h1 {
+        letter-spacing: -2px;
+      }
+
+      .about-grid,
+      .applications-grid,
+      .status {
+        grid-template-columns: 1fr;
       }
 
       nav div:last-child {
         display: none;
       }
 
-      .hero h1 {
-        letter-spacing: -2px;
+      .logo-liq {
+        font-size: 38px;
       }
-    }
 
-    @media (max-width: 450px) {
-      .applications {
-        grid-template-columns: 1fr;
+      .logo-id {
+        font-size: 43px;
       }
     }
   </style>
@@ -158,113 +313,334 @@
   <div class="container">
 
     <nav>
-      <div class="logo">liqID</div>
+
+      <div class="logo">
+        <span class="logo-liq">liq</span><span class="logo-id">ID</span>
+      </div>
 
       <div>
         <a href="#about">About</a>
         <a href="#applications">Applications</a>
+        <a href="#development">Development</a>
         <a href="#contact">Contact</a>
       </div>
+
     </nav>
 
 
+    <!-- HERO -->
+
     <main class="hero">
 
-      <h1>Rapid liquid analysis.<br>On site.</h1>
+      <div>
 
-      <p>
-        liqID is developing portable sensing technology for fast,
-        practical analysis of industrial liquids.
-      </p>
+        <h1>
+          Rapid liquid analysis.<br>
+          On site.
+        </h1>
 
-      <a class="button" href="#contact">
-        Get in touch
-      </a>
+        <p>
+          liqID is developing portable sensing technology for fast,
+          practical analysis of industrial liquids at the point of use.
+        </p>
+
+        <a class="button" href="#contact">
+          Get in touch
+        </a>
+
+      </div>
+
+
+      <div class="hero-image">
+
+        <img
+          src="liqid-concept.png"
+          alt="liqID portable liquid analyser concept">
+
+      </div>
 
     </main>
 
+  </div>
 
-    <section id="about">
 
-      <h2>Better information. Faster decisions.</h2>
+  <!-- ABOUT -->
 
-      <p>
-        Industrial liquid testing often relies on off-site analysis.
-        liqID is developing technology designed to bring useful liquid
-        information closer to the point of use.
+  <section id="about">
+
+    <div class="container">
+
+      <div class="section-label">
+        About liqID
+      </div>
+
+      <h2>
+        Better information.<br>
+        Faster decisions.
+      </h2>
+
+      <p class="section-intro">
+        Industrial liquid testing can depend on sending samples away
+        for analysis. liqID is developing a portable approach designed
+        to bring useful liquid information closer to the equipment,
+        operators and engineers who need it.
       </p>
+
+
+      <div class="about-grid">
+
+        <div class="about-point">
+
+          <h3>Built for the point of use</h3>
+
+          <p>
+            The goal is simple: provide practical information where
+            equipment is being operated rather than relying entirely
+            on remote testing.
+          </p>
+
+        </div>
+
+
+        <div class="about-point">
+
+          <h3>Designed around industry</h3>
+
+          <p>
+            liqID is being developed with industrial applications in mind,
+            focusing on portability, rapid testing and practical deployment.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- APPLICATIONS -->
+
+  <section id="applications">
+
+    <div class="container">
+
+      <div class="section-label">
+        Applications
+      </div>
+
+      <h2>
+        Designed for industrial liquids.
+      </h2>
+
+      <p class="section-intro">
+        liqID is being developed as a flexible liquid-analysis platform.
+        Current development is focused on understanding where rapid,
+        on-site screening can provide the greatest practical value.
+      </p>
+
+
+      <div class="applications-grid">
+
+        <div class="application">
+
+          <div class="application-number">
+            01
+          </div>
+
+          <h3>
+            Hydraulic Fluids
+          </h3>
+
+          <p>
+            Potential applications include monitoring changes in hydraulic
+            fluid condition and identifying contamination or abnormal samples
+            before they contribute to equipment problems.
+          </p>
+
+        </div>
+
+
+        <div class="application">
+
+          <div class="application-number">
+            02
+          </div>
+
+          <h3>
+            Engine & Machinery Oils
+          </h3>
+
+          <p>
+            Portable screening of oils used in engines, industrial equipment
+            and machinery could support faster maintenance decisions and
+            condition-monitoring programmes.
+          </p>
+
+        </div>
+
+
+        <div class="application">
+
+          <div class="application-number">
+            03
+          </div>
+
+          <h3>
+            Fuels
+          </h3>
+
+          <p>
+            Rapid field analysis may provide a practical way to identify
+            differences in fuel samples, contamination or unexpected
+            changes before use.
+          </p>
+
+        </div>
+
+
+        <div class="application">
+
+          <div class="application-number">
+            04
+          </div>
+
+          <h3>
+            Process Liquids & Water
+          </h3>
+
+          <p>
+            The sensing platform is also being explored for water and other
+            industrial process liquids where fast screening could help
+            operators identify changes without waiting for routine laboratory
+            analysis.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- DEVELOPMENT -->
+
+  <section id="development">
+
+    <div class="container">
+
+      <div class="section-label">
+        Development
+      </div>
+
+      <h2>
+        From prototype to industrial validation.
+      </h2>
+
+      <p class="section-intro">
+        liqID is currently at prototype stage and is beginning engagement
+        with industry to understand real-world requirements and applications.
+      </p>
+
 
       <div class="status">
-        <div>Working prototype</div>
-        <div>Industrial validation underway</div>
-        <div>Developed in Ireland</div>
+
+        <div class="status-card">
+
+          <h3>
+            Working Prototype
+          </h3>
+
+          <p>
+            Functional sensing system developed and under active testing.
+          </p>
+
+        </div>
+
+
+        <div class="status-card">
+
+          <h3>
+            Industrial Validation
+          </h3>
+
+          <p>
+            Preparing to evaluate the technology using real-world industrial samples.
+          </p>
+
+        </div>
+
+
+        <div class="status-card">
+
+          <h3>
+            IP Development
+          </h3>
+
+          <p>
+            Intellectual property and future product development currently in progress.
+          </p>
+
+        </div>
+
       </div>
 
-    </section>
+    </div>
+
+  </section>
 
 
-    <section id="applications">
+  <!-- CONTACT -->
 
-      <h2>Applications</h2>
+  <section id="contact">
 
-      <p>
-        The technology is being explored for a range of industrial
-        liquid monitoring applications.
-      </p>
+    <div class="container">
 
-      <div class="applications">
-
-        <div class="application">
-          <h3>Hydraulic Fluids</h3>
-        </div>
-
-        <div class="application">
-          <h3>Lubricants</h3>
-        </div>
-
-        <div class="application">
-          <h3>Fuels</h3>
-        </div>
-
-        <div class="application">
-          <h3>Process Liquids</h3>
-        </div>
-
+      <div class="section-label">
+        Get in touch
       </div>
 
-    </section>
+      <h2>
+        We're looking for industrial partners.
+      </h2>
 
-
-    <section id="contact">
-
-      <h2>Let's talk.</h2>
-
-      <p>
-        liqID is currently speaking with industrial operators,
-        engineers and organisations interested in liquid monitoring
-        and real-world testing.
+      <p class="section-intro">
+        If you work with industrial liquids, machinery, fleet maintenance,
+        condition monitoring or related technologies, we'd be interested
+        in hearing about the challenges you encounter.
       </p>
 
-      <br>
 
-      <p>
-        <strong>Luke Shee</strong><br>
+      <div class="contact-details">
+
+        <strong>Your Name</strong><br>
+
         Founder, liqID<br>
+
         Ireland<br><br>
 
         <a href="mailto:YOUR-EMAIL-HERE">
-          lukeshee06@gmail.com
+          YOUR-EMAIL-HERE
         </a>
-      </p>
 
-    </section>
+      </div>
+
+    </div>
+
+  </section>
 
 
-    <footer>
+  <footer>
+
+    <div class="container">
       © 2026 liqID. All rights reserved.
-    </footer>
+    </div>
 
-  </div>
+  </footer>
 
 </body>
+
 </html>
